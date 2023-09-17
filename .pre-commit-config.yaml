@@ -1,0 +1,40 @@
+# https://pre-commit.com/hooks.html
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  #- id: no-commit-to-branch  # prevent direct commits to main branch
+  - id: check-ast  # simply checks whether the files parse as valid python
+    args: ['--unsafe']
+  - id: end-of-file-fixer  # ensures that a file is either empty, or ends with one newline
+  - id: trailing-whitespace  # trims trailing whitespace
+  - id: requirements-txt-fixer  # sorts entries in requirements.txt
+  - id: check-xml  # checks xml files for parseable syntax.
+  - id: check-toml  # checks toml files for parseable syntax
+  - id: check-json  # checks json files for parseable syntax
+  - id: pretty-format-json  # sets a standard for formatting json files
+  - id: check-yaml  # checks yaml files for parseable syntax
+  - id: sort-simple-yaml  # sorts simple yaml files which consist only of top-level keys, preserving comments and blocks
+
+
+# Upgrade syntax for newer versions of the language
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.11.0
+  hooks:
+  - id: pyupgrade
+    name: Update syntax
+
+# Fast linting
+- repo: https://github.com/astral-sh/ruff-pre-commit
+  rev: v0.0.289
+  hooks:
+  - id: ruff
+    name: Package Formatting
+
+# Linting through yapf
+- repo: https://github.com/google/yapf
+  rev: 'v0.40.0'  # Use the sha / tag you want to point at
+  hooks:
+  - id: yapf
+    name: Code Formatting
+
