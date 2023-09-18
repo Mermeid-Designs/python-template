@@ -16,7 +16,6 @@ repos:
   - id: check-yaml  # checks yaml files for parseable syntax
   - id: sort-simple-yaml  # sorts simple yaml files which consist only of top-level keys, preserving comments and blocks
 
-
 # Upgrade syntax for newer versions of the language
 - repo: https://github.com/asottile/pyupgrade
   rev: v3.11.0
@@ -26,7 +25,7 @@ repos:
 
 # Fast linting
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.0.289
+  rev: v0.0.290
   hooks:
   - id: ruff
     name: Package Formatting
@@ -37,4 +36,3 @@ repos:
   hooks:
   - id: yapf
     name: Code Formatting
-
